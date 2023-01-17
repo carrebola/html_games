@@ -2,6 +2,9 @@ import { usuarios } from "../datos/usuarios";
 import { registro } from "./registro";
 import { loginUsuari } from "../funciones/loginUsuari";
 import { home } from "./home"
+import { header } from "../componentes/header";
+import { ls } from "../funciones/ls";
+import { user } from "../componentes/user";
 
 export const login = {
 
@@ -43,7 +46,10 @@ script: ()=>{
     if(event.target.classList.contains('login')){
         console.log('login');
         if(!loginUsuari().error){
-          document.querySelector('#user').innerHTML = document.querySelector('#nickLogin').value
+          ls.setUsuariLogin(document.querySelector('#nickLogin').value)
+         document.querySelector('header').innerHTML = header.template
+         header.script()
+         user.script()
           document.querySelector('main').innerHTML = home.template
           home.script() 
         }

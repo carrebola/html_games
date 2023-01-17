@@ -9,11 +9,14 @@ export const ls = {
         //console.log(dades);
     },
     setDades: (dades)=>{
-        window.localStorage.setItem('tetris_dades', JSON.stringify(dades))
+        localStorage.setItem('tetris_dades', JSON.stringify(dades))
         return true
     },
     setUsuariLogin: (nick)=>{
-        window.localStorage.setItem('tetris_usuariLogin', nick)
+        localStorage.setItem('tetris_usuariLogin', nick)
         return true
+    },
+    getUsuariLogin: ()=>{
+        return localStorage.getItem('tetris_usuariLogin')
     }
 }

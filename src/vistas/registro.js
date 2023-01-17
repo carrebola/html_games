@@ -33,7 +33,11 @@ export const registro = {
                     </div>
                     <div class="form-group">
                         <label for="avatar">Imagen de avatar</label>
-                        <input type="file" class="form-control-file" id="avatar">
+                        <select id="avatar">
+                            <option value="https://cdn-icons-png.flaticon.com/128/4140/4140061.png">avatar1.jpg</option>
+                            <option value="https://cdn-icons-png.flaticon.com/512/1993/1993341.png">avatar2.jpg</option>
+                            <option value="https://cdn-icons-png.flaticon.com/512/4139/4139993.png">avatar3.jpg</option>
+                        </select>
                     </div>
                     <button id="#submit" type="submit" class="registro btn btn-primary">Registrarse</button>
                 </form>
