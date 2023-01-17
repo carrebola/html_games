@@ -1,5 +1,5 @@
-import { dades } from "./dades.js"
-
+import { ls } from "./ls"
+const dades = ls.getDades()
 export const validaLogin = (usuari)=>{
     //Si el nick no existeix en la base de dades
     if(usuari){

@@ -2,6 +2,6 @@
 
 
 export const user = `
-<span>Anonimo</span>
+<span id="user">Anonimo</span>
 
 `
