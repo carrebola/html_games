@@ -1,5 +1,7 @@
+
+
 import { usuarios } from "../datos/usuarios";
-var datos =  JSON.parse(localStorage.getItem('usuarios')) || []
+var datos =  JSON.parse(localStorage.getItem('tetris_dades')) || []
 
 export const adminUsuarios = {
     template: 
@@ -33,11 +35,11 @@ script: ()=>{
         <tr>
             <td>${element.id}</td>
             <td>${element.email}</td>
-            <td>${element.password}</td>
+            <td>${element.pass}</td>
             <td>${element.nick}</td>
             <td>${element.name}</td>
             <td>${element.surname}</td>
-            <td>${element.birthdate}</td>
+            <td>${element.dataNeixement}</td>
             <td><img class="avatar" src="${element.avatar}"></td>
             <td><button data-id="${element.id}" type="button" class="editar btn btn-outline-primary">Editar</button></td>
             <td><button data-id="${element.id}" type="button" class="eliminar btn btn-outline-danger">Eliminar</button></td>
