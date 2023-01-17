@@ -1,3 +1,4 @@
+import { creaUsuariValid } from '../funciones/creaUsuariValid'
 export const registro = {
 
     template: `
@@ -12,7 +13,7 @@ export const registro = {
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" placeholder="Ingresa una contraseña segura">
+                        <input type="password" class="form-control" id="pass" placeholder="Ingresa una contraseña segura">
                     </div>
                     <div class="form-group">
                         <label for="nick">Nick</label>
@@ -34,7 +35,7 @@ export const registro = {
                         <label for="avatar">Imagen de avatar</label>
                         <input type="file" class="form-control-file" id="avatar">
                     </div>
-                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <button id="#submit" type="submit" class="registro btn btn-primary">Registrarse</button>
                 </form>
             </div>
         </div>   
@@ -42,7 +43,14 @@ export const registro = {
     
     `,
     script: ()=>{
-        console.log('registro cargado');
+        document.querySelector('main').addEventListener('click',(event)=>{
+            event.preventDefault()
+            if(event.target.classList.contains('registro')){
+                console.log('registrando');
+                alert(creaUsuariValid().missatge)
+            }
+           
+        });
     }
     
     }

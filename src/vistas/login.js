@@ -1,3 +1,4 @@
+import { usuarios } from "../datos/usuarios";
 import { registro } from "./registro";
 
 export const login = {
@@ -14,7 +15,7 @@ template: `
         </div>
         <div class="form-group">
           <label for="password">Contraseña</label>
-          <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+          <input type="password" class="form-control" id="pass" placeholder="Ingresa tu contraseña">
         </div>
         <div class="form-group">
           <label for="nick">Nick</label>
@@ -24,7 +25,7 @@ template: `
           <input type="checkbox" class="form-check-input" id="rememberUser">
           <label class="form-check-label" for="rememberUser">Recordar usuario</label>
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <button id="login" type="submit" class="btn btn-primary">Iniciar sesión</button>
         <a id="registrarse" href="#" class="btn btn-link">Registrarse</a>
       </form>
         </div>
@@ -34,7 +35,14 @@ template: `
 `,
 script: ()=>{
     console.log('login cargado');
-    document.querySelector('#registrarse').addEventListener('click', ()=>{
+  //login
+  document.querySelector('#login').addEventListener('click', (event)=>{
+    event.preventDefault();
+    const userId = document.querySelector('selector');  
+  });
+
+
+    document.querySelector('#registrarse').addEventListener('click', (event)=>{
         event.preventDefault()
         console.log('registrarse');
         document.querySelector('main').innerHTML = registro.template

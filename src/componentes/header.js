@@ -2,6 +2,7 @@
 import { user } from "./user"
 import { login } from "../vistas/login"
 import { registro } from "../vistas/registro"
+import { adminUsuarios } from "../vistas/adminUsuarios"
 
 export const header = {
 
@@ -24,7 +25,10 @@ export const header = {
             </li> 
             <li class="nav-item">
             <a id="registro" class="nav-link" href="#">Registro</a>
-            </li> 
+            </li>
+            <li class="nav-item">
+            <a id="adminUsuarios" class="nav-link" href="#">Admin usuarios</a>
+            </li>  
         </ul>
         </div>
     </div>
@@ -43,7 +47,14 @@ export const header = {
         document.querySelector('#registro').addEventListener('click', ()=>{
             event.preventDefault()
             document.querySelector('main').innerHTML = registro.template        
+            registro.script()
         })
 
+        //adminUsuarios
+        document.querySelector('#adminUsuarios').addEventListener('click', ()=>{
+            event.preventDefault()
+            document.querySelector('main').innerHTML = adminUsuarios.template        
+            adminUsuarios.script()
+        })
     }
 }
