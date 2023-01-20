@@ -1,6 +1,7 @@
 //modificaDAta
 
 export const modificaData2 = (fecha)=>{
+        
     const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
     var dia = fecha.getDate() 
     if(fecha.getDate()<10) dia=`0${fecha.getDate()}`
@@ -17,7 +18,10 @@ export const modificaData2 = (fecha)=>{
     var segundos = fecha.getSeconds() 
     if(fecha.getSeconds()<10) segundos=`0${fecha.getSeconds()}`
     
-    const fechaTexto = `${fecha.getFullYear()}/${mes}/${dia} ${horas}:${minutos}:${segundos}`
-    return fechaTexto
+    let fechaTexto = `${fecha.getFullYear()}/${mes}/${dia} ${horas}:${minutos}:${segundos}`
+    if (fechaTexto == 'NaN/NaN/NaN NaN:NaN:NaN' ) fechaTexto = ''
+    
+        return fechaTexto
+    
     
 }

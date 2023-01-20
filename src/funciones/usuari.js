@@ -60,10 +60,10 @@ export const usuari = {
             }
         }
     },
-    delete: (nick)=>{
+    delete: (id)=>{
         const dades = ls.getDades()
-        const indexUsuarioBorrar = dades.findIndex(usuario => usuario.nick == nick)
-        const usuarioBorrar = dades.find(usuario => usuario.nick == nick)
+        const indexUsuarioBorrar = dades.findIndex(usuario => usuario.id == id)
+        const usuarioBorrar = dades.find(usuario => usuario.id == id)
         if(indexUsuarioBorrar!=-1){
             //Eliminamos elemento encontrado
             dades.splice(indexUsuarioBorrar,1)

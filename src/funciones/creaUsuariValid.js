@@ -15,9 +15,12 @@ export const creaUsuariValid = ()=>{
         pass: document.querySelector('#pass').value,
         avatar: document.querySelector('#avatar').value,
         punts: 0,
-        dataRegistre: modificaData2(new Date()),
-        dataNeixement: modificaData2(new Date(document.querySelector('#date').value))
+        dataRegistre: new Date(),
+        dataNeixement: new Date(document.querySelector('#date').value)
     }
+
+    console.log(usuario.dataRegistre);
+    console.log(usuario.dataNeixement);
     const insertarUsuario = usuari.set(usuario)
     return insertarUsuario;
    

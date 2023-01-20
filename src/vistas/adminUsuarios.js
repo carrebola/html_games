@@ -1,59 +1,52 @@
 
-
-import { usuarios } from "../datos/usuarios";
-var datos =  JSON.parse(localStorage.getItem('tetris_dades')) || []
+import { router } from "../componentes/router";
+import { usuari } from "../funciones/usuari";
+import { mostraTaulaAdmin } from "../funciones/mostraTaulaAdmin";
+import { ls } from "../funciones/ls";
+const datos = ls.getDades()
+console.log('leyendo usuaiors', datos);
 
 export const adminUsuarios = {
     template: 
 `
 <h2>Admin Usuarios</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">email</th>
-      <th scope="col">password</th>
-      <th scope="col">nick</th>
-      <th scope="col">name</th>
-      <th scope="col">surname</th>
-      <th scope="col">birthdate</th>
-      <th scope="col">avatar</th>
-    </tr>
-  </thead>
-  <tbody>
-   
-  </tbody>
+<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nick</th>
+
+                <th scope="col">Avatar</th>
+                <th scope="col">punts</th>
+                <th scope="col">Fecha registro</th>
+                <th scope="col">Edad</th>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+  
 </table>
 
 `,
 script: ()=>{
-    let html =``
-    console.log(datos);
+  document.querySelector('tbody').innerHTML = mostraTaulaAdmin(ls.getDades());
+   //Observadores
+  document.querySelector('table').addEventListener('click',(e)=>{
     
-    datos.forEach(element => {
-        html+=`
-        <tr>
-            <td>${element.id}</td>
-            <td>${element.email}</td>
-            <td>${element.pass}</td>
-            <td>${element.nick}</td>
-            <td>${element.name}</td>
-            <td>${element.surname}</td>
-            <td>${element.dataNeixement}</td>
-            <td><img class="avatar" src="${element.avatar}"></td>
-            <td><button data-id="${element.id}" type="button" class="editar btn btn-outline-primary">Editar</button></td>
-            <td><button data-id="${element.id}" type="button" class="eliminar btn btn-outline-danger">Eliminar</button></td>
-        </tr>`
-    });
-    html+=`</tr>`
-    if(datos.length == 0) html = 'No hay usuarios registrados'
-    document.querySelector('tbody').innerHTML = html;
-    document.querySelector('table').addEventListener('click',(e)=>{
-        if(e.target.classList.contains('eliminar')){
-            let id = e.target.dataset.id
-            console.log('eliminar', id);
-            usuarios.delete(id)
-        }
-    }) 
+    if(e.target.classList.contains('eliminar')){
+          let id = e.target.dataset.id
+          console.log('eliminar', id);
+          alert(usuari.delete(id).missatge)
+          document.querySelector('tbody').innerHTML = mostraTaulaAdmin(ls.getDades());
+    }
+  
+    if(e.target.classList.contains('editar')){
+      let id = e.target.dataset.id
+      router.editar(id)
+    }
+})
+  
 }
 }

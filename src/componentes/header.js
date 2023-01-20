@@ -4,6 +4,8 @@ import { login } from "../vistas/login"
 import { registro } from "../vistas/registro"
 import { adminUsuarios } from "../vistas/adminUsuarios"
 
+import { router } from "./router"
+
 export const header = {
 
     template: `
@@ -38,20 +40,19 @@ export const header = {
     script: ()=> {
         //eventos para cargar vistas
         //login
-        document.querySelector('#login').addEventListener('click', ()=>{
+        document.querySelector('#login').addEventListener('click', (event)=>{
             event.preventDefault()
-            document.querySelector('main').innerHTML = login.template   
-            login.script()     
+            router.login()   
         })
         //registro
-        document.querySelector('#registro').addEventListener('click', ()=>{
+        document.querySelector('#registro').addEventListener('click', (event)=>{
             event.preventDefault()
             document.querySelector('main').innerHTML = registro.template        
             registro.script()
         })
 
         //adminUsuarios
-        document.querySelector('#adminUsuarios').addEventListener('click', ()=>{
+        document.querySelector('#adminUsuarios').addEventListener('click', (event)=>{
             event.preventDefault()
             document.querySelector('main').innerHTML = adminUsuarios.template        
             adminUsuarios.script()
