@@ -19,6 +19,7 @@ export const adminUsuarios = {
                 <th scope="col">Avatar</th>
                 <th scope="col">punts</th>
                 <th scope="col">Fecha registro</th>
+                <th scope="col">Fecha Nacimiento</th>
                 <th scope="col">Edad</th>
                 <td></td>
                 <td></td>
@@ -34,12 +35,12 @@ script: ()=>{
   document.querySelector('tbody').innerHTML = mostraTaulaAdmin(ls.getDades());
    //Observadores
   document.querySelector('table').addEventListener('click',(e)=>{
-    
+    let id = e.target.dataset.id
+
     if(e.target.classList.contains('eliminar')){
-          let id = e.target.dataset.id
-          console.log('eliminar', id);
           alert(usuari.delete(id).missatge)
-          document.querySelector('tbody').innerHTML = mostraTaulaAdmin(ls.getDades());
+          //document.querySelector('tbody').innerHTML = mostraTaulaAdmin(ls.getDades());
+          router.adminUsuarios()
     }
   
     if(e.target.classList.contains('editar')){

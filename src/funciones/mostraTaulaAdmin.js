@@ -9,7 +9,7 @@ export const mostraTaulaAdmin = ()=>{
     dades.forEach(element => {
         taula+=`
             <tr>
-                <th scope="row">${element.id}</th>
+                <td>${element.id}</td>
                 <td>${element.nick}</td>
                 <td>
                     <img
@@ -20,6 +20,7 @@ export const mostraTaulaAdmin = ()=>{
                 </td>
                 <td>${element.punts}</td>
                 <td>${element.dataRegistre}</td>
+                <td>${element.dataNeixement}</td>
                 <td>${edat(element.dataNeixement)}</td>
                 <td><button id="eliminarUsuario" data-id="${element.id}" type="button" class="eliminar btn btn-danger">Eliminar</button></td>
                 <td><button id="editarUsuario" data-id="${element.id}" type="button" class="editar btn btn-info">Editar</button></td>

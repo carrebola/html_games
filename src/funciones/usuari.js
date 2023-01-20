@@ -4,9 +4,9 @@ import { ls } from './ls.js'
 import { validaNouUsuari } from './validaNouUsuari.js'
 
 export const usuari = {
-    get: (nick)=>{
+    get: (id)=>{
         const dades = ls.getDades()
-        const usuarioEncontrado = dades.find(usuario => usuario.nick == nick)
+        const usuarioEncontrado = dades.find(usuario => usuario.id == id)
         if(usuarioEncontrado){
             return  {
                 error: false,
