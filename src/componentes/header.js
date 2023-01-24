@@ -10,16 +10,16 @@ export const header = {
 
     template: `
     ${user.template}
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar avbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Vanilla Games</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a id="home" class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             
             <li class="nav-item">
@@ -39,6 +39,11 @@ export const header = {
     `,
     script: ()=> {
         //eventos para cargar vistas
+        //home
+        document.querySelector('#home').addEventListener('click', (event)=>{
+            event.preventDefault()
+            router.home()   
+        })
         //login
         document.querySelector('#login').addEventListener('click', (event)=>{
             event.preventDefault()
@@ -47,15 +52,13 @@ export const header = {
         //registro
         document.querySelector('#registro').addEventListener('click', (event)=>{
             event.preventDefault()
-            document.querySelector('main').innerHTML = registro.template        
-            registro.script()
+            router.registro()
         })
 
         //adminUsuarios
         document.querySelector('#adminUsuarios').addEventListener('click', (event)=>{
             event.preventDefault()
-            document.querySelector('main').innerHTML = adminUsuarios.template        
-            adminUsuarios.script()
+            router.adminUsuarios()
         })
     }
 }

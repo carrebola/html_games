@@ -1,22 +1,21 @@
+
 //mostraTaula
+import multiavatar from '@multiavatar/multiavatar/esm'
 import { modificaData } from "./modificaData";
 import { edat } from "./edat";
 import { ls } from "./ls";
+
 export const mostraTaulaAdmin = ()=>{
     var dades =  ls.getDades()
 
     var taula = ``
     dades.forEach(element => {
         taula+=`
-            <tr>
+            <tr class="" data-id = "${element.id}">
                 <td>${element.id}</td>
                 <td>${element.nick}</td>
                 <td>
-                    <img
-                        class="avatar"
-                        src=""
-                        alt=""
-                    />
+                    ${multiavatar(element.nick)}
                 </td>
                 <td>${element.punts}</td>
                 <td>${element.dataRegistre}</td>

@@ -1,4 +1,8 @@
 import { creaUsuariValid } from '../funciones/creaUsuariValid'
+import { modificaNick } from '../funciones/modificaNick';
+
+import multiavatar from '@multiavatar/multiavatar/esm'
+
 export const registro = {
 
     template: `
@@ -31,15 +35,8 @@ export const registro = {
                         <label for="date">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="date">
                     </div>
-                    <div class="form-group">
-                        <label for="avatar">Imagen de avatar</label>
-                        <select id="avatar">
-                            <option value="https://cdn-icons-png.flaticon.com/128/4140/4140061.png">avatar1.jpg</option>
-                            <option value="https://cdn-icons-png.flaticon.com/512/1993/1993341.png">avatar2.jpg</option>
-                            <option value="https://cdn-icons-png.flaticon.com/512/4139/4139993.png">avatar3.jpg</option>
-                        </select>
-                    </div>
-                    <button id="#submit" type="submit" class="registro btn btn-primary">Registrarse</button>
+                   <div id="avatar-url" class="mt-3">${multiavatar('anonimo')}</div> 
+                    <button id="#submit" type="submit" class="mt-3 registro mt-2 btn btn-primary">Registrarse</button>
                 </form>
             </div>
         </div>   
@@ -47,6 +44,7 @@ export const registro = {
     
     `,
     script: ()=>{
+
         document.querySelector('main').addEventListener('click',(event)=>{
             event.preventDefault()
             if(event.target.classList.contains('registro')){
@@ -55,6 +53,36 @@ export const registro = {
             }
            
         });
+
+        document.querySelector('main').addEventListener('keydown',(event)=>{    
+            if(event.target.getAttribute('id') == 'nick'){
+                console.log('pulsando en  nick');
+                let nick = event.target.value
+                document.querySelector('#avatar-url').innerHTML = multiavatar(nick)
+                
+            }
+        });
+
+        document.querySelector('main').addEventListener('focusout',(event)=>{    
+                console.log(event.target);
+            if(event.target.getAttribute('id') == 'nick'){
+                console.log('perdiendo foco de nick');
+                let nick = event.target.value
+                document.querySelector('#nick').value = modificaNick(nick);
+                document.querySelector('#avatar-url').innerHTML = multiavatar( document.querySelector('#nick').value)
+                
+            }
+        });
+
+        document.querySelector('main').addEventListener('change',(event)=>{    
+            if(event.target.getAttribute('id') == 'nick'){
+                console.log('change nick');
+                let nick = event.target.value
+                document.querySelector('#avatar-url').innerHTML = multiavatar(nick)
+                
+            }
+        });
+
     }
     
     }

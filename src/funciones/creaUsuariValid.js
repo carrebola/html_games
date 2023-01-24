@@ -13,7 +13,7 @@ export const creaUsuariValid = ()=>{
         id: uuidv4(),
         nick: modificaNick(document.querySelector('#nick').value),
         pass: document.querySelector('#pass').value,
-        avatar: document.querySelector('#avatar').value,
+        avatar: document.querySelector('#avatar-url').value,
         punts: 0,
         dataRegistre: new Date(),
         dataNeixement: new Date(document.querySelector('#date').value)

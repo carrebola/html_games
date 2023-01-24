@@ -41,7 +41,7 @@ export const usuari = {
     },
     put: (usuari)=>{
         const dades = ls.getDades()
-        const index = dades.findIndex(usuario => usuario.nick == usuari.nick)
+        const index = dades.findIndex(usuario => usuario.id == usuari.id)
         console.log('indexOf carlos', index);
         if(index>-1){
             if(usuari.pass!="") dades[index].pass = usuari.pass
